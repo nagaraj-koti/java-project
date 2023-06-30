@@ -25,4 +25,9 @@ tools{
         }
 
     }
+    post{
+        always{
+            mail bcc: '', body: '''$BUILD_NUMBER $BUILD_NAME
+
+jenkins $BUILD_URL''', cc: '', from: '', replyTo: '', subject: 'jenkins job', to: 'rayhubli@gmail.com'
 }
