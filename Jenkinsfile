@@ -20,7 +20,7 @@ tools{
             deploy adapters: [tomcat9(url: 'http://3.108.217.75:8080/', 
                               credentialsId: 'tomcat-server-cred')], 
                      war: 'target/*.war',
-                     contextPath: 'hello'
+                     contextPath: 'hello-app'
             }
         }
 
