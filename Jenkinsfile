@@ -17,7 +17,7 @@ tools{
         }
         stage('Deploy'){
             steps{
-            deploy adapters: [tomcat9(url: 'http://3.108.217.75:8080/', 
+            deploy adapters: [tomcat9(url: 'http://13.233.151.223:8080/', 
                               credentialsId: 'tomcat-server-cred')], 
                      war: 'target/*.war',
                      contextPath: 'hello-app'
