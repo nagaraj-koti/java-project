@@ -21,7 +21,7 @@ tools{
                 timeout(time:8, unit:"SECONDS")
             }
             steps{
-                catchError(buildResult:"SUCCESS", stageResult:"FAILURE", message: "Deploy timeout"){
+                catchError(buildResult:"SUCCESS", stageResult:"ABORTED", message: "Deploy timeout"){
             deploy adapters: [tomcat9(url: 'http://13.233.151.223:8080/', 
                               credentialsId: 'tomcat-server-cred')], 
                      war: 'target/*.war',
