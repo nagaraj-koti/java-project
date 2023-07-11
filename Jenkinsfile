@@ -18,13 +18,14 @@ tools{
         }
         stage('Deploy'){
             steps{
-                catchError{
-                    
+                // catchError{
+                    timeout(time:20, unit:"SECONDS"){
             deploy adapters: [tomcat9(url: 'http://13.233.151.223:8080/', 
                               credentialsId: 'tomcat-server-cred')], 
                      war: 'target/*.war',
                      contextPath: 'hello'
-            }
+                    }
+                        // }
         }
 
     }
