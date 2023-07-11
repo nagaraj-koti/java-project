@@ -21,12 +21,25 @@ tools{
                 timeout(time:8, unit:"SECONDS")
             }
             steps{
-                catchError(buildResult:"SUCCESS", stageResult:"ABORTED", message: "Deploy timeout"){
-            deploy adapters: [tomcat9(url: 'http://13.233.151.223:8080/', 
+                Exception caughtExc = null
+               scripts{
+                    catchError(buildResult:"SUCCESS", stageResult:"ABORTED", message: "Deploy timeout"){
+                        try{
+                         deploy adapters: [tomcat9(url: 'http://13.233.151.223:8080/', 
                               credentialsId: 'tomcat-server-cred')], 
-                     war: 'target/*.war',
-                     contextPath: 'hello'
+                         war: 'target/*.war',
+                         contextPath: 'hello'   
+                        }catch(org.jenkinsci.plugins.workflow.steps.FlowInterruptedException e){
+                            error "Caught ${e.toString()}"
+                        }catch(Throwable e){
+                            caughtExc = e
                         }
+
+                        if(caughtExc){
+                            error caughtExc.message
+                        }
+                    }
+               }
         }
 
     }
