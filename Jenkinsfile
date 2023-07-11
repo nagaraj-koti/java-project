@@ -31,6 +31,7 @@ tools{
         stage('check'){
             steps{
                 echo "deploy check"
+            }
         }
             
     post{
