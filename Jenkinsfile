@@ -25,6 +25,7 @@ tools{
                    Exception caughtExc = null
                     catchError(buildResult:"SUCCESS", stageResult:"ABORTED", message: "Deploy timeout"){
                         try{
+                            sh 'exit 1'
                          deploy adapters: [tomcat9(url: 'http://13.233.151.223:8080/', 
                               credentialsId: 'tomcat-server-cred')], 
                          war: 'target/*.war',
