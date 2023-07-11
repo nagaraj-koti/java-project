@@ -28,11 +28,11 @@ tools{
         }
 
     }
-        stage('check'){
-            steps{
-                echo "deploy check"
-            }
-        }
+        // stage('check'){
+        //     steps{
+        //         echo "deploy check"
+        //     }
+        // }
             
     post{
         always{
