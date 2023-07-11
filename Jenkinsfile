@@ -21,7 +21,7 @@ tools{
                 timeout(time:8, unit:"SECONDS")
             }
             steps{
-               scripts{
+               script{
                    Exception caughtExc = null
                     catchError(buildResult:"SUCCESS", stageResult:"ABORTED", message: "Deploy timeout"){
                         try{
