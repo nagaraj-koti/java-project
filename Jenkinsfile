@@ -7,7 +7,8 @@ tools{
         stage('Clone') {
             steps {
                 // git branch:'prod', url: 'ttps://github.com/nagaraj-koti/java-project.git'
-                git branch:"main", url: 'https://github.com/nagaraj-koti/java-project.git'
+                // git branch:"main", url: 'https://github.com/nagaraj-koti/java-project.git'
+                echo "git clone"
             }
         }
         stage('Build'){
