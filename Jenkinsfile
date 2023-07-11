@@ -28,6 +28,11 @@ tools{
         }
 
     }
+        stage('check'){
+            steps{
+                echo "deploy check"
+        }
+            
     post{
         always{
             mail bcc: '', body: "${env.BUILD_NUMBER} - ${env.BUILD_status} jenkins ${env.BUILD_URL}", cc: '', from: '', replyTo: '', subject: 'jenkins job', to: 'rayhubli@gmail.com'
