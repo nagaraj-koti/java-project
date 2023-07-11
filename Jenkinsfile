@@ -21,8 +21,8 @@ tools{
                 timeout(time:8, unit:"SECONDS")
             }
             steps{
-                Exception caughtExc = null
                scripts{
+                   Exception caughtExc = null
                     catchError(buildResult:"SUCCESS", stageResult:"ABORTED", message: "Deploy timeout"){
                         try{
                          deploy adapters: [tomcat9(url: 'http://13.233.151.223:8080/', 
