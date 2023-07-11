@@ -18,7 +18,7 @@ tools{
         }
         stage('Deploy'){
             steps{
-                catchError(buildResut:"success", stageResult:"failed"){
+                catchError(buildResult:"success", stageResult:"failed"){
             deploy adapters: [tomcat9(url: 'http://13.233.151.223:8080/', 
                               credentialsId: 'tomcat-server-cred')], 
                      war: 'target/*.war',
